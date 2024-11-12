@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static '/css/reset.css' %}">
+  <link rel="stylesheet" href="{% static '/css/home.css' %}">
+  <link rel="stylesheet" href="{% static '/css/cadastro.css' %}">
+  <title>Cadastro</title>
+</head>
+<div class="nav-container">
+  <nav class="nav-bar">
+    <ul>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'recursos' %}">Recursos</a></li>
+      <li><a href="{% url 'contato' %}">Contato</a></li>
+      <li><a href="{% url 'dados' %}">Dados</a></li>
+    </ul>
+  </nav>
+</div>
+<body>
+  <section>
+    <div class="div-img-cadastro">
+      <img src="{% static '/imgs/ilustracao-de-vetores-de-conceitos-isolados-de-clientes_107173-43358.jpg' %}" alt="Imagem de página não encontrada">
+    </div>
+  </section>
+  <section>
+    .........
+  </section>
+</body>
+</html>

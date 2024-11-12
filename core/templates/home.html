@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static '/css/reset.css' %}">
+  <link rel="stylesheet" href="{% static '/css/home.css' %}">
+  <link rel="stylesheet" href="{% static '/css/recursos.css' %}">
+  <link rel="stylesheet" href="{% static '/css/contato.css' %}">
+  <title>HOME</title>
+</head>
+<div class="nav-container">
+  <nav class="nav-bar">
+    <ul>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'recursos' %}">Recursos</a></li>
+      <li><a href="{% url 'contato' %}">Contato</a></li>
+
+      <li><a href="{% url 'login' %}">Login</a></li> 
+      <!-- O USUÁRIO SÓ PODERÁ CADASTRAR UM FUNCIONÁRIO OU VER OS DADOS SE FIZER O LOGIN ANTES-->
+    </ul>
+  </nav>
+</div>
+
+<body>
+  <section>
+  <div class="div-imgs">
+    <div class="div-img-left">
+      <div>
+        <img src="{% static '/imgs/9152057016_97379d56-b867-427e-bad7-e9f293d78be9.png' %}" alt="">
+      </div>
+    </div>
+    <div  class="div-img-right">
+      <img src="{% static '/imgs/pexels-goumbik-590041.jpg' %}" alt="">
+    </div>
+  </div>
+  </section>
+  <section>
+    ...
+  </section>
+
+    <!-- CONTATO -->
+    {% include 'contato.html' %}
+    <!-- END CONTATO -->
+
+    <!-- RECURSOS -->
+    {% include 'recursos.html' %}
+    <!-- END RECURSOS -->
+  
+</body>
+
+</html>

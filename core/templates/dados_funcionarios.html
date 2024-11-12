@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static '/css/home.css' %}">
+  <link rel="stylesheet" href="{% static '/css/reset.css' %}">
+  <link rel="stylesheet" href="{% static '/css/dados.css' %}">
+  <title>Dados</title>
+</head>
+<div class="nav-container">
+  <nav class="nav-bar">
+    <ul>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'recursos' %}">Recursos</a></li>
+      <li><a href="{% url 'contato' %}">Contato</a></li>
+      <li><a href="{% url 'cadastro' %}">Cadastro</a></li>
+    </ul>
+  </nav>
+</div>
+<body>
+  <section>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Nascimento</th>
+        <th>CPF</th>
+        <th>Naturalidade</th>
+        <th>Cargo</th>
+        <th>Remuneração</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for funcionario in funcionarios %}
+      <tr>
+        <th>{{ funcionario.nome }} {{ funcionario.sobrenome }}</th>
+        <th>{{ funcionario.nascimento }}</th>
+        <th>{{ funcionario.cpf }}</th>
+        <th>{{ funcionario.naturalidade }}</th>
+        <th>{{ funcionario.cargo }}</th>
+        <th>{{ funcionario.remuneracao }}</th>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+  <section>
+<div class="div-img-dados">
+  <img src="{% static '/imgs/business-people-blue-background.jpg' %}" alt="">
+</div>
+  </section>
+</body>
+</html>
