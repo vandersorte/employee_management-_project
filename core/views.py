@@ -91,9 +91,3 @@ class DadosView(TemplateView):
       context = super(DadosView, self).get_context_data(**kwargs)
       context['funcionarios'] = Funcioarios.objects.order_by().all()
       return context
-    
-class RecursosView(TemplateView):
-  template_name = 'recursos.html'
-
-class ContatoView(TemplateView):
-  template_name = 'contato.html'

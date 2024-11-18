@@ -1,11 +1,28 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
+  <link rel="stylesheet" href="{% static '/css/home.css' %}">
+  <link rel="stylesheet" href="{% static '/css/reset.css' %}">
+  <link rel="stylesheet" href="{% static '/css/login.css' %}">
+  <title>RH+ | Login</title>
 </head>
+<ul class="navbar">
+  <li><a href="{% url 'home' %}" class="a-home">Início</a></li>
+</ul>
+
 <body>
-  
+  <section class="section-login">
+    <h1>PÁGINA DE LOGIN</h1>
+
+    <form action="">
+      ...
+    </form>
+  </section>
+ 
 </body>
+
 </html>

@@ -10,46 +10,39 @@
   <link rel="stylesheet" href="{% static '/css/home.css' %}">
   <link rel="stylesheet" href="{% static '/css/recursos.css' %}">
   <link rel="stylesheet" href="{% static '/css/contato.css' %}">
-  <title>HOME</title>
+  <title>RH+</title>
 </head>
-<div class="nav-container">
-  <nav class="nav-bar">
-    <ul>
-      <li><a href="{% url 'home' %}">Home</a></li>
-      <li><a href="{% url 'recursos' %}">Recursos</a></li>
-      <li><a href="{% url 'contato' %}">Contato</a></li>
+<ul class="navbar">
+  <li><a href="#section-home" class="a-home">Início</a></li>
+  <li><a href="#section-recursos" class="a-recursos">Recursos</a></li>
+  <li><a href="#section-contato" class="a-contato">Contato</a></li>
 
-      <li><a href="{% url 'login' %}">Login</a></li> 
-      <!-- O USUÁRIO SÓ PODERÁ CADASTRAR UM FUNCIONÁRIO OU VER OS DADOS SE FIZER O LOGIN ANTES-->
-    </ul>
-  </nav>
-</div>
+  <li><a href="{% url 'login' %}" class="a-login">Login</a></li>
+  <!-- O USUÁRIO SÓ PODERÁ CADASTRAR UM FUNCIONÁRIO OU VER OS DADOS SE FIZER O LOGIN ANTES-->
+
+  <li><a href="{% url 'cadastro' %}" class="a-cadastro">Cadastro</a></li>
+  <li><a href="{% url 'dados' %}" class="a-dados">Dados</a></li>
+</ul>
 
 <body>
-  <section>
-  <div class="div-imgs">
-    <div class="div-img-left">
-      <div>
-        <img src="{% static '/imgs/9152057016_97379d56-b867-427e-bad7-e9f293d78be9.png' %}" alt="">
-      </div>
+  <section id="section-home">
+    <div class="welcome">
+      <h1>Olá, seja bem vindo!</h1>
+      <h4>Simplifique a gestão do seu time! Nosso sistema oferece uma plataforma completa para cadastro, acompanhamento e gestão de funcionários, otimizando seus processos e garantindo mais tempo para você se dedicar ao que realmente importa.</h4>
+        <button class="btn-login"><a href="{% url 'login' %}">Faça o Login para iniciar</a></button>
     </div>
-    <div  class="div-img-right">
-      <img src="{% static '/imgs/pexels-goumbik-590041.jpg' %}" alt="">
-    </div>
-  </div>
-  </section>
-  <section>
-    ...
+    
   </section>
 
-    <!-- CONTATO -->
-    {% include 'contato.html' %}
-    <!-- END CONTATO -->
+  <!-- RECURSOS -->
+  {% include 'recursos.html' %}
+  <!-- END RECURSOS -->
 
-    <!-- RECURSOS -->
-    {% include 'recursos.html' %}
-    <!-- END RECURSOS -->
-  
+  <!-- CONTATO -->
+  {% include 'contato.html' %}
+  <!-- END CONTATO -->
+
+
 </body>
 
 </html>

@@ -7,18 +7,13 @@
   <link rel="stylesheet" href="{% static '/css/home.css' %}">
   <link rel="stylesheet" href="{% static '/css/reset.css' %}">
   <link rel="stylesheet" href="{% static '/css/dados.css' %}">
-  <title>Dados</title>
+  <title>RH+ | Dados</title>
 </head>
-<div class="nav-container">
-  <nav class="nav-bar">
-    <ul>
-      <li><a href="{% url 'home' %}">Home</a></li>
-      <li><a href="{% url 'recursos' %}">Recursos</a></li>
-      <li><a href="{% url 'contato' %}">Contato</a></li>
-      <li><a href="{% url 'cadastro' %}">Cadastro</a></li>
-    </ul>
-  </nav>
-</div>
+<ul class="navbar">
+  <li><a href="{% url 'home' %}" class="a-home">Início</a></li>
+  <li><a href="{% url 'cadastro' %}" class="a-cadastro">Cadastro</a></li>
+</ul>
+
 <body>
   <section>
   <table>
@@ -47,9 +42,7 @@
   </table>
 </section>
   <section>
-<div class="div-img-dados">
-  <img src="{% static '/imgs/business-people-blue-background.jpg' %}" alt="">
-</div>
+    ...
   </section>
 </body>
 </html>
