@@ -1,8 +1,15 @@
 * {
   margin: 0;
   padding: 0;
-  scrollbar-width: none;
-
+  scrollbar-width: none; /* BARRA DE ROLAGEM */
+  scroll-behavior: smooth;  /* SCROLL SUAVE */
 }
 
+section {
+  width: 100vw;
+  height: 100vh;
+}
 
+a {
+  text-decoration-line: none;
+}

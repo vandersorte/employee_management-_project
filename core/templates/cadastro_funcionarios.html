@@ -15,10 +15,18 @@
 </ul>
 <body>
   <section class="section-cadastro">
-    ........
-  </section>
-  <section>
-    .........
+    <div class="container-form">
+      <div>
+        <img src="" alt=""> <!-- IMAGEM DO FORMULARIO(ICONE SEM FUNDO)-->
+      </div>
+      <div class="container-form2">
+        <form action="." method="post">
+          {% csrf_token %}
+          {{ form }}
+          <input type="submit" value="Enviar" class="btn-submit-form">
+        </form>
+      </div>
+    </div>
   </section>
 </body>
 </html>

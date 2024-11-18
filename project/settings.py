@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'rhplus', # NOME DO BANCO DE DADOS
+        'USER': 'root', # NOME DE USUÁRIO DO BANCO DE DADOS
+        'PASSWORD': '30162584', # SENHA DO USUÁRIO DO BANCO DE DADOS
+        'HOST': 'localhost', # HOST DO BANCO DE DADOS(NÃO É OBRIGATÓRIO)
+        'PORT': '3306', # PORTA DE CONEXÃO DO BANCO DE DADOS
     }
 }
 

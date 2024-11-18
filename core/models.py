@@ -43,6 +43,11 @@ class Funcioarios(models.Model):
     ('Tl', 'Tech Lead'),
   )
 
+  GENERO_CHOICES = (
+    ('M', 'Masculino'),
+    ('F', 'Feminino'),
+  )
+
   # validação para que os campos númericos recebam apenas números
   def validate_number(value):
     if not value.isdigit():
@@ -51,6 +56,7 @@ class Funcioarios(models.Model):
   nome = models.CharField('Nome', max_length=100)
   sobrenome = models.CharField('Sobrenome', max_length=100)
   nascimento = models.DateField('Nascimento')
+  genero = models.CharField('Gênero', max_length=100, choices=GENERO_CHOICES, default='')
   cpf = models.CharField('CPF', max_length=14, default='')
   naturalidade = models.CharField('Naturalidade',max_length=100)
   cargo = models.CharField('Cargo', max_length=100)

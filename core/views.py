@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from .models import Funcioarios
+from .forms import FuncionariosForm
 from faker import Faker
 import random
 from datetime import datetime
@@ -57,32 +58,32 @@ class HomeView(TemplateView):
 class LoginView(TemplateView):
   template_name = 'login.html' 
 
-class CadastroView(TemplateView):
-    template_name = 'cadastro_funcionarios.html'
+def CadastroView(request):
+   context = {
+      'form': FuncionariosForm
+   }
+   return render(request, 'cadastro_funcionarios.html', context)
 
-    form_class = Funcioarios
+# fun = Funcioarios.objects.all()
+# fun.delete()
 
-    fun = Funcioarios.objects.all()
-    fun.delete()
-
-    # def gerar_funcionarios(quantidade):
-    #     for _ in range(50):
-    #         cargo = random.choice(tuple(CARGOS_CHOICES))
-    #         remuneracao = random.randint(*FAIXAS_SALARIAIS[cargo])
-    #         naturalidade = random.choice(tuple(CITY_CHOICES))
-          
-    #         Funcioarios.objects.create(
-    #             nome = fake.first_name(),
-    #             sobrenome = fake.last_name(),
-    #             nascimento = fake.date_between_dates(date_start=datetime(1980,1,1), date_end=datetime(2005,12,31)),
-    #             cpf = fake.cpf(),
-    #             naturalidade = naturalidade,
-    #             cargo = cargo,
-    #             remuneracao = remuneracao,
-    #         )
-    # gerar = gerar_funcionarios(50)
+def gerar_funcionarios(quantidade):
+    for _ in range(50):
+        cargo = random.choice(tuple(CARGOS_CHOICES))
+        remuneracao = random.randint(*FAIXAS_SALARIAIS[cargo])
+        naturalidade = random.choice(tuple(CITY_CHOICES))
+      
+        Funcioarios.objects.create(
+            nome = fake.first_name(),
+            sobrenome = fake.last_name(),
+            nascimento = fake.date_between_dates(date_start=datetime(1980,1,1), date_end=datetime(2005,12,31)),
+            cpf = fake.cpf(),
+            naturalidade = naturalidade,
+            cargo = cargo,
+            remuneracao = remuneracao,
+        )
+gerar_funcionarios(50)
     
-
 class DadosView(TemplateView):
     template_name = 'dados_funcionarios.html'
     form_class = Funcioarios
