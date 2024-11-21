@@ -22,11 +22,17 @@
       <div class="container-form2">
         <form action="." method="post">
           {% csrf_token %}
-          {{ form }}
+          {{ form.as_p }}
           <input type="submit" value="Enviar" class="btn-submit-form">
+          
         </form>
       </div>
     </div>
+    
+    {% for m in messages %}
+      <strong>{{m}}</strong>
+    {% endfor %}
+      
   </section>
 </body>
 </html>

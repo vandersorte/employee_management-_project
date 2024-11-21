@@ -7,4 +7,45 @@ body {
   color: white;
 }
 
+.section-cadastro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-form {
+  background-image:url("/static/img/background-1837214.jpg");
+  background-size: 100vw 100vh;
+  background-position: 50%;
+  width: 50vw;
+  height: 80vh;
+  border-radius: 5%;
+}
+
+.container-form2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  height: 85vh;
+}
+.container-form form {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  height: 45vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.btn-submit-form {
+  width: 50%;
+  position: relative;
+  left: 25%;
+  top: 5%;
+}
+
+
 
