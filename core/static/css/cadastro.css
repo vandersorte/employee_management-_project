@@ -1,51 +1,55 @@
-body {
-  background-image: url("/static/img/1_6df15c2e-7475-4b2e-839e-3826bc5c02f6.png");
-  background-size: 100vw 100vh;
-}
-
 .navbar a {
   color: white;
 }
 
 .section-cadastro {
+  background-image:url("/static/img/fundo-fade-4k-1920-x-1080-xra9dqc9u7bqbgqx.webp");
+  background-size: 100vw 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .container-form {
-  background-image:url("/static/img/fundo-fade-4k-1920-x-1080-xra9dqc9u7bqbgqx.webp");
-  background-size: 100vw 100vh;
-  background-position: 50%;
-  width: 50vw;
-  height: 80vh;
-  border-radius: 5%;
-}
-
-.container-form2 {
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50vw;
-  height: 85vh;
 }
+
+.container-form2 {
+  width: 60vw;
+  height: 75vh;
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+  padding-left: 17%;
+}
+
 .container-form form {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bold;
-  height: 45vh;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  color: white;
+  height: 30vh;
 }
 
 .btn-submit-form {
-  width: 50%;
+  width: 100px;
   position: relative;
   left: 25%;
   top: 5%;
 }
 
+.div-form-icon {
+  width: 55vw;
+  height: 75vh;
+  display: flex;
+  justify-content: flex-end;
+}
 
-
+.div-form-icon img{
+  width: 70vw;
+  height: 85vh;
+}

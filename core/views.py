@@ -58,21 +58,27 @@ class LoginView(TemplateView):
   template_name = 'login.html' 
 
 def CadastroView(request):
-  if request.method == 'GET':
+  form = FuncionariosForm(request.POST or None)
+
+  if str(request.method) == 'GET':
     context = {
         'form': FuncionariosForm
     }
     return render(request, 'cadastro_funcionarios.html', context)
-  else:
-    form = FuncionariosForm(request.POST)
+  
+  if str(request.method) == 'POST':
     if form.is_valid():
-      dados = form.save()
-      form = FuncionariosForm()
+      form.save()
+      context = {
+        'form': FuncionariosForm,
+      }
       messages.success(request, 'Dados salvos com sucesso.')
+      form = FuncionariosForm()
+      return render(request, 'cadastro_funcionarios.html', context)
     else:
       messages.error(request, 'Erro, dados não poderam ser salvos.')
       context = {
-        'form': FuncionariosForm
+        'form': FuncionariosForm,
       }
       return render(request, 'cadastro_funcionarios.html', context)
 

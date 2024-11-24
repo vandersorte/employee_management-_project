@@ -68,11 +68,12 @@
   font-family:Arial, Helvetica, sans-serif;
   color: white;
   font-weight: bold;
+  font-size: 20px;
 }
 
 .welcome .btn-login {
   position: absolute;
-  bottom: 50%;
+  bottom: 40%;
   right: 45%;
 }
  /* END SECTION HOME */

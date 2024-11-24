@@ -1,6 +1,9 @@
 {% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,26 +16,41 @@
   <li><a href="{% url 'home' %}" class="a-home">Início</a></li>
   <li><a href="{% url 'dados' %}" class="a-dados">Dados</a></li>
 </ul>
+
 <body>
   <section class="section-cadastro">
     <div class="container-form">
-      <div>
-        <img src="" alt=""> <!-- IMAGEM DO FORMULARIO(ICONE SEM FUNDO)-->
-      </div>
+
       <div class="container-form2">
         <form action="." method="post">
           {% csrf_token %}
           {{ form.as_p }}
           <input type="submit" value="Enviar" class="btn-submit-form">
           
+          <div class="container mt-3">
+            <div class="row">
+
+              {% comment %} {% if messages %}
+              {% for msg in messages %}
+              <div class="alert alert-primary" role="alert">
+                <br><strong>{{msg}}</strong>
+              </div>
+              {% endfor %}
+              {% endif %} {% endcomment %}
+              {% bootstrap_messages %}
+
+            </div>
+          </div>
         </form>
       </div>
+
+      <div class="div-form-icon">
+        <img src="{% static '/img/fundo3.png' %}">
+      </div>
+
     </div>
-    
-    {% for m in messages %}
-      <strong>{{m}}</strong>
-    {% endfor %}
-      
+
   </section>
 </body>
+
 </html>

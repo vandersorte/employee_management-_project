@@ -7,3 +7,4 @@ class FuncionariosForm(forms.ModelForm):
   class Meta:
     model = Funcioarios
     fields = '__all__'
+    
