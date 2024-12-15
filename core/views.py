@@ -75,7 +75,7 @@ def CadastroView(request):
       messages.success(request, 'Dados salvos com sucesso.')
       form = FuncionariosForm()
       return render(request, 'cadastro_funcionarios.html', context)
-    else:
+  else:  
       messages.error(request, 'Erro, dados não poderam ser salvos.')
       context = {
         'form': FuncionariosForm,
@@ -100,15 +100,9 @@ def CadastroView(request):
 #             remuneracao = remuneracao,
 #         )
 # gerar_funcionarios(50)
-# fun = Funcioarios.objects.all() 
-# fun.delete() # FUNÇÃO PARA EXCLUIR OS DADOS FAKE 
-# # END DADOS FAKE    
+fun = Funcioarios.objects.all() 
+fun.delete() # FUNÇÃO PARA EXCLUIR OS DADOS FAKE 
+# END DADOS FAKE    
 
-class DadosView(TemplateView):
-    template_name = 'dados_funcionarios.html'
-    form_class = Funcioarios
-
-    def get_context_data(self, **kwargs):
-      context = super(DadosView, self).get_context_data(**kwargs)
-      context['funcionarios'] = Funcioarios.objects.order_by().all()
-      return context
+def DadosView(request):
+  return render(request, 'dados_funcionarios.html')

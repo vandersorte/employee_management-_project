@@ -3,4 +3,4 @@ from .models import Funcioarios
 
 @admin.register(Funcioarios)
 class FuncioariosAdmin(admin.ModelAdmin):
-  list_display = ('nome', 'sobrenome', 'nascimento', 'naturalidade')
+  list_display = ('nome', 'sobrenome', 'cargo')

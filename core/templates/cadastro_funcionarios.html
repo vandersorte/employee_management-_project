@@ -20,28 +20,27 @@
 <body>
   <section class="section-cadastro">
     <div class="container-form">
-
       <div class="container-form2">
-        <form action="." method="post">
+       
+        <form action="{% url 'cadastro' %}" method="post">
+
           {% csrf_token %}
-          {{ form.as_p }}
-          <input type="submit" value="Enviar" class="btn-submit-form">
-          
-          <div class="container mt-3">
-            <div class="row">
+          <label for="nome">Nome:</label>
+          <input type="text" name="nome" id="nome" pattern="[a-zA-Z ]+" title="Digite apenas letras.">
+          <label for="sobrenome">Sobrenome:</label>
+          <input type="text" name="sobrenome" id="sobrenome" pattern="[a-zA-Z ]+" title="Digite apenas letras.">
+          <label for="nascimento">Nascimento:</label>
+          <input type="date" name="nascimento" id="nascimento"><br>
+          Genero: {{form.genero}}<br>
+          <label for="CPF">CPF:</label>
+          <input type="number" name="cpf" id="cpf"  pattern="[0-9]+" title="Digite apenas números."><br>
+          Cargo: {{form.cargo}}<br>
+          <label for="remuneracao">Remuneração:</label>
+          <input type="number" name="remuneracao" id="remuneracao"  pattern="[0-9]+" title="Digite apenas números.">
+          <input type="submit" value="Enviar" class="btn-submit-form"> 
+          </form>
+            
 
-              {% comment %} {% if messages %}
-              {% for msg in messages %}
-              <div class="alert alert-primary" role="alert">
-                <br><strong>{{msg}}</strong>
-              </div>
-              {% endfor %}
-              {% endif %} {% endcomment %}
-              {% bootstrap_messages %}
-
-            </div>
-          </div>
-        </form>
       </div>
 
       <div class="div-form-icon">

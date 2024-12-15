@@ -1,4 +1,7 @@
 {% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -15,7 +18,19 @@
 </ul>
 
 <body>
-  <section>
+  <section class="section-dados">
+
+    <div class="div-form">
+      <form action="." method="get">
+        {% csrf_token %}
+        <label for="Buscar">Buscar dados do funcionário:</label>
+      <!-- <input type="search" name="busca" id="busca" placeholder="Digite o nome completo"> -->
+       {{ busca.as_p }}
+      <input type="submit" value="Buscar">
+    </form>
+    </div>
+
+    <div class="div-dados">
   <table>
     <thead>
       <tr>
@@ -24,7 +39,7 @@
         <th>CPF</th>
         <th>Naturalidade</th>
         <th>Cargo</th>
-        <th>Remuneração</th>
+        <th> Remuneração </th>
       </tr>
     </thead>
     <tbody>
@@ -40,6 +55,7 @@
       {% endfor %}
     </tbody>
   </table>
+</div>
 </section>
   <section>
     ...

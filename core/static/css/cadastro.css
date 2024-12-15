@@ -1,6 +1,9 @@
 .navbar a {
   color: white;
+  display: flex;
 }
+
+
 
 .section-cadastro {
   background-image:url("/static/img/fundo-fade-4k-1920-x-1080-xra9dqc9u7bqbgqx.webp");
@@ -19,20 +22,26 @@
 }
 
 .container-form2 {
-  width: 60vw;
-  height: 75vh;
+  display: flex;
+  width: 80vw;
+  height: 80vh;
   display: flex;
   /* justify-content: center;
   align-items: center; */
   padding-left: 17%;
 }
 
-.container-form form {
+.container-form2 form {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: bold;
   color: white;
-  height: 30vh;
+  height: 50vh;
+  padding-top: 5%;
+}
+
+.container-form2 input {
+  display:block;
 }
 
 .btn-submit-form {
