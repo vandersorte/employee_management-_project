@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from .models import Funcioarios
-from .forms import FuncionariosForm
+from .models import Funcionarios
+from .forms import FuncionariosForm, BuscarForm
 from faker import Faker
 import random
 from datetime import datetime
@@ -64,7 +64,7 @@ def CadastroView(request):
     context = {
         'form': FuncionariosForm
     }
-    return render(request, 'cadastro_funcionarios.html', context)
+    return render(request, 'cadastro.html', context)
   
   if str(request.method) == 'POST':
     if form.is_valid():
@@ -80,29 +80,31 @@ def CadastroView(request):
       context = {
         'form': FuncionariosForm,
       }
-      return render(request, 'cadastro_funcionarios.html', context)
+      return render(request, 'cadastro.html', context)
 
 # DADOS FAKE
-# fake = Faker('pt-br')
-# def gerar_funcionarios(quantidade): # FUNÇÃO QUE GERA DADOS FAKE
-#     for _ in range(50):
-#         cargo = random.choice(tuple(CARGOS_CHOICES))
-#         remuneracao = random.randint(*FAIXAS_SALARIAIS[cargo])
-#         naturalidade = random.choice(tuple(CITY_CHOICES))
+fake = Faker('pt-br')
+def gerar_funcionarios(quantidade): # FUNÇÃO QUE GERA DADOS FAKE
+    for _ in range(quantidade):
+        cargo = random.choice(tuple(CARGOS_CHOICES))
+        remuneracao = random.randint(*FAIXAS_SALARIAIS[cargo])
       
-#         Funcioarios.objects.create(
-#             nome = fake.first_name(),
-#             sobrenome = fake.last_name(),
-#             nascimento = fake.date_between_dates(date_start=datetime(1980,1,1), date_end=datetime(2005,12,31)),
-#             cpf = fake.cpf(),
-#             naturalidade = naturalidade,
-#             cargo = cargo,
-#             remuneracao = remuneracao,
-#         )
-# gerar_funcionarios(50)
-fun = Funcioarios.objects.all() 
-fun.delete() # FUNÇÃO PARA EXCLUIR OS DADOS FAKE 
+        Funcionarios.objects.create(
+            nome = fake.first_name(),
+            sobrenome = fake.last_name(),
+            nascimento = fake.date_between_dates(date_start=datetime(1980,1,1), date_end=datetime(2005,12,31)),
+            cpf = fake.cpf(),
+            cargo = cargo,
+            remuneracao = remuneracao,
+        )
+gerar_funcionarios(5)
+# fun = Funcionarios.objects.all() 
+# fun.delete() # FUNÇÃO PARA EXCLUIR OS DADOS FAKE 
 # END DADOS FAKE    
 
 def DadosView(request):
-  return render(request, 'dados_funcionarios.html')
+  context = {
+     'dados': Funcionarios.objects.all()
+  }
+  
+  return render(request, 'dados.html', context)

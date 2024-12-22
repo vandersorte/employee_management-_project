@@ -2,7 +2,7 @@
 from django.db import models
 from django.core.exceptions import ValidationError
 
-class Funcioarios(models.Model):
+class Funcionarios(models.Model):
   
   #opções de cidades no Brasil
   CITY_CHOICES = (
@@ -62,8 +62,6 @@ class Funcioarios(models.Model):
   # naturalidade = models.CharField('Naturalidade',max_length=100)
   cargo = models.CharField('Cargo', max_length=100, choices=CARGOS_CHOICES)
   remuneracao = models.CharField('Remuneração',max_length=100, validators=[validate_number], default='')
-
-
   
   class Meta:
     verbose_name = 'Funcionario'

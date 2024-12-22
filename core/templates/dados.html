@@ -19,14 +19,11 @@
 
 <body>
   <section class="section-dados">
-
     <div class="div-form">
-      <form action="." method="get">
-        {% csrf_token %}
-        <label for="Buscar">Buscar dados do funcionário:</label>
-      <!-- <input type="search" name="busca" id="busca" placeholder="Digite o nome completo"> -->
-       {{ busca.as_p }}
-      <input type="submit" value="Buscar">
+      <form action="." method="post">
+      {% csrf_token %}
+      {{ busca }}
+      <button type="submit">Buscar</button>
     </form>
     </div>
 
@@ -35,22 +32,12 @@
     <thead>
       <tr>
         <th>Nome</th>
-        <th>Nascimento</th>
-        <th>CPF</th>
-        <th>Naturalidade</th>
-        <th>Cargo</th>
-        <th> Remuneração </th>
       </tr>
     </thead>
     <tbody>
-      {% for funcionario in funcionarios %}
+      {% for funcionario in dados %}
       <tr>
-        <th>{{ funcionario.nome }} {{ funcionario.sobrenome }}</th>
-        <th>{{ funcionario.nascimento }}</th>
-        <th>{{ funcionario.cpf }}</th>
-        <th>{{ funcionario.naturalidade }}</th>
-        <th>{{ funcionario.cargo }}</th>
-        <th>{{ funcionario.remuneracao }}</th>
+        <th>{{ funcionario.nome }}</th>
       </tr>
       {% endfor %}
     </tbody>
