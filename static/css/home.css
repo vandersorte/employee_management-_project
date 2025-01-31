@@ -10,7 +10,7 @@
 }
 
 .navbar li {
-  display: inline; /*Aquiremovemos as quebras de linha antes e depois de cada item da lista, para exibi-los em uma linha */
+  display: inline; /*Aqui removemos as quebras de linha antes e depois de cada item da lista, para exibi-los em uma linha */
   padding: 10px;
   padding: 10px;
   margin: 5px; 

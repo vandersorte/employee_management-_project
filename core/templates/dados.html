@@ -1,6 +1,4 @@
 {% load static %}
-{% load bootstrap5 %}
-{% bootstrap_css %}
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -18,34 +16,39 @@
 </ul>
 
 <body>
-  <section class="section-dados">
-    <div class="div-form">
-      <form action="." method="post">
-      {% csrf_token %}
-      {{ busca }}
-      <button type="submit">Buscar</button>
-    </form>
-    </div>
+  
 
+<section>
+  
     <div class="div-dados">
-  <table>
+      <form method="get" action="{% url 'dados' %}">
+        {% csrf_token %}
+        {{ nome.as_p }}
+      </form>
+  <table class="class-table">
     <thead>
       <tr>
         <th>Nome</th>
+        <th>Nascimento</th>
+        <th>CPF</th>
+        <th>Cargo</th>
+        <th>Remuneração</th>
       </tr>
     </thead>
     <tbody>
       {% for funcionario in dados %}
       <tr>
-        <th>{{ funcionario.nome }}</th>
+        <th>{{ funcionario.nome }} {{ funcionario.sobrenome }}</th>
+        <th>{{ funcionario.nascimento }}</th>
+        <th>{{ funcionario.cpf }}</th>
+        <th>{{ funcionario.cargo }}</th>
+        <th>{{ funcionario.remuneracao }}</th>
       </tr>
       {% endfor %}
     </tbody>
   </table>
 </div>
 </section>
-  <section>
-    ...
-  </section>
+
 </body>
 </html>

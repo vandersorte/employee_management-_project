@@ -3,8 +3,6 @@ from django.views.generic import TemplateView
 from .models import Funcionarios
 from .forms import FuncionariosForm, BuscarForm
 from faker import Faker
-import random
-from datetime import datetime
 from django.contrib import messages
 
 CITY_CHOICES = (
@@ -83,28 +81,36 @@ def CadastroView(request):
       return render(request, 'cadastro.html', context)
 
 # DADOS FAKE
-fake = Faker('pt-br')
-def gerar_funcionarios(quantidade): # FUNÇÃO QUE GERA DADOS FAKE
-    for _ in range(quantidade):
-        cargo = random.choice(tuple(CARGOS_CHOICES))
-        remuneracao = random.randint(*FAIXAS_SALARIAIS[cargo])
+# fake = Faker('pt-br')
+# def gerar_funcionarios(quantidade): # FUNÇÃO QUE GERA DADOS FAKE
+#     for _ in range(quantidade):
+#         cargo = random.choice(tuple(CARGOS_CHOICES))
+#         remuneracao = random.randint(*FAIXAS_SALARIAIS[cargo])
       
-        Funcionarios.objects.create(
-            nome = fake.first_name(),
-            sobrenome = fake.last_name(),
-            nascimento = fake.date_between_dates(date_start=datetime(1980,1,1), date_end=datetime(2005,12,31)),
-            cpf = fake.cpf(),
-            cargo = cargo,
-            remuneracao = remuneracao,
-        )
-gerar_funcionarios(5)
+#         Funcionarios.objects.create(
+#             nome = fake.first_name(),
+#             sobrenome = fake.last_name(),
+#             nascimento = fake.date_between_dates(date_start=datetime(1980,1,1), date_end=datetime(2005,12,31)),
+#             cpf = fake.cpf(),
+#             cargo = cargo,
+#             remuneracao = remuneracao,
+#         )
+# gerar_funcionarios(50)
 # fun = Funcionarios.objects.all() 
 # fun.delete() # FUNÇÃO PARA EXCLUIR OS DADOS FAKE 
 # END DADOS FAKE    
 
 def DadosView(request):
+  dados = Funcionarios.objects.all()
+  nome = BuscarForm
+  funcionario = None
+
+  if nome in dados.filter():
+    funcionario = Funcionarios.objects.all()
+
   context = {
-     'dados': Funcionarios.objects.all()
+    'dados': funcionario,
+    'nome': nome,
   }
   
   return render(request, 'dados.html', context)

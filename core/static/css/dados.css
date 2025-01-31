@@ -16,29 +16,39 @@ body {
 }
 
 .div-form {
-  width: 50vw;
-
+  width: 100vw;
+  /* height: 50vh; */
   display: flex;
   justify-content: first baseline;
- justify-content: center;
+  justify-content: center;
 }
 
 .div-dados {
-  width: 50vw;
-  height: 50vh;
+  width: 75vw;
+  height: 75vh;
   display: flex;
   justify-content:center;
   align-items:center;
+  overflow: scroll;
 }
 
-.div-dados table { 
+/* .div-dados table { 
   width: 100vw;
-  height: 100vh;
-  
+  height: 100vh; 
+} */
+
+.class-table {
+  width: 50vw;
+  height: 50vh;
 }
 
-thead {color: rgb(10, 12, 10);}
-tbody {color: blue;}
+thead {
+  background-color: rgb(0, 123, 255);
+  position: fixed; 
+}
+tbody {
+  color: gray;
+}
 
 table, th, td {
   border: 1px solid black;
